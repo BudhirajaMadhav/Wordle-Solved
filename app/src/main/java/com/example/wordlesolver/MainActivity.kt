@@ -1,13 +1,13 @@
 package com.example.wordlesolver
 
 import android.animation.ValueAnimator
-import android.app.ActionBar
+import android.content.res.Configuration
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.DatePicker
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.browser.customtabs.CustomTabColorSchemeParams
 import androidx.browser.customtabs.CustomTabsIntent
@@ -21,12 +21,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+//
+//        if (resources.configuration.uiMode and
+//            Configuration.UI_MODE_NIGHT_MASK != UI_MODE_NIGHT_YES) {
+
 
         supportActionBar?.displayOptions = androidx.appcompat.app.ActionBar.DISPLAY_SHOW_CUSTOM
         supportActionBar?.setCustomView(R.layout.action_bar_textview)
 
-        val tickerView: TickerView
-
+//        }
         val datePicker = findViewById<DatePicker>(R.id.datePicker)
         val c = Calendar.getInstance()
         c.set(Calendar.YEAR, 2021)
@@ -78,7 +81,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setSolution(solution: String) {
 
-        val solViewsArr: ArrayList<TextView> = ArrayList<TextView>()
+        val solViewsArr: ArrayList<TickerView> = ArrayList<TickerView>()
 
         solViewsArr.add(findViewById(R.id.firstLetter))
         solViewsArr.add(findViewById(R.id.secondLetter))
@@ -87,20 +90,23 @@ class MainActivity : AppCompatActivity() {
         solViewsArr.add(findViewById(R.id.fifthLetter))
 
         for (index in 0..4) {
-            showAnimationAndSetLetter(solViewsArr[index], solution[index].code)
+            showAnimationAndSetLetter(solViewsArr[index], solution[index].toUpperCase())
         }
 
     }
 
-    private fun showAnimationAndSetLetter(letterTextView: TextView, characterAscii: Int) {
-        val valueAnimator = ValueAnimator.ofInt(65, characterAscii - 32)
+    private fun showAnimationAndSetLetter(letterTickerView: TickerView, character: Char) {
+//        val valueAnimator = ValueAnimator.ofInt(65, characterAscii - 32)
+//
+//        valueAnimator.addUpdateListener {
+//            letterTickerView.text = (valueAnimator.animatedValue.toString().toInt()).toChar().toString()
+//        }
+//
+//        valueAnimator.duration = 1500
+//        valueAnimator.start()
 
-        valueAnimator.addUpdateListener {
-            letterTextView.text = (valueAnimator.animatedValue.toString().toInt()).toChar().toString()
-        }
-
-        valueAnimator.duration = 1500
-        valueAnimator.start()
+        letterTickerView.setCharacterLists("ABCDEFGHIJKLMNOPQRSTWXYZ")
+        letterTickerView.setText(character.toString(), true)
 
     }
 
