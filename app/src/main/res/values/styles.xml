@@ -1,0 +1,17 @@
+<resources>
+
+    <style name="Widget.Theme.WordleSolver.ActionBar.Fullscreen" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
+    </style>
+
+    <style name="Widget.Theme.WordleSolver.ButtonBar.Fullscreen" parent="">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
+    </style>
+
+    <style name="action_bar_style" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:background">@color/color_of_status_bar</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+</resources>

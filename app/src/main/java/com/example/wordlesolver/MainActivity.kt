@@ -1,19 +1,31 @@
 package com.example.wordlesolver
 
 import android.animation.ValueAnimator
+import android.app.ActionBar
+import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.DatePicker
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.browser.customtabs.CustomTabColorSchemeParams
+import androidx.browser.customtabs.CustomTabsIntent
+import com.robinhood.ticker.TickerView
 import java.util.*
 import kotlin.math.floor
+
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        supportActionBar?.displayOptions = androidx.appcompat.app.ActionBar.DISPLAY_SHOW_CUSTOM
+        supportActionBar?.setCustomView(R.layout.action_bar_textview)
+
+        val tickerView: TickerView
 
         val datePicker = findViewById<DatePicker>(R.id.datePicker)
         val c = Calendar.getInstance()
@@ -22,10 +34,25 @@ class MainActivity : AppCompatActivity() {
         c.set(Calendar.DAY_OF_MONTH, 19)
 
         datePicker.minDate = c.timeInMillis
-
         findViewById<Button>(R.id.showSolutionButton).setOnClickListener {
             val solution: String = getSolutionFromDatePicker(datePicker)
             setSolution(solution)
+        }
+
+        findViewById<Button>(R.id.playWordleButton).setOnClickListener{
+            val url = "https://www.nytimes.com/games/wordle/index.html"
+            val builder = CustomTabsIntent.Builder();
+
+            val colorInt: Int = Color.parseColor("#558950")
+
+            val defaultColors = CustomTabColorSchemeParams.Builder()
+                .setToolbarColor(colorInt)
+                .build()
+            builder.setDefaultColorSchemeParams(defaultColors)
+
+            val customTabsIntent = builder.build();
+
+            customTabsIntent.launchUrl(this, Uri.parse(url));
         }
 
     }

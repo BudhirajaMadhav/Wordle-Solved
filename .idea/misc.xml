@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Work/Public/Android/WordleSolver/app/src/main/res/drawable/action_bar_textview.xml" value="0.1495" />
         <entry key="..\:/Work/Public/Android/WordleSolver/app/src/main/res/drawable/date_picker_theme.xml" value="0.1" />
         <entry key="..\:/Work/Public/Android/WordleSolver/app/src/main/res/drawable/rounded_corner.xml" value="0.1" />
+        <entry key="..\:/Work/Public/Android/WordleSolver/app/src/main/res/layout/action_bar_textview.xml" value="0.1641025641025641" />
         <entry key="..\:/Work/Public/Android/WordleSolver/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Work/Public/Android/WordleSolver/app/src/main/res/layout/activity_main2.xml" value="0.2" />
+        <entry key="..\:/Work/Public/Android/WordleSolver/app/src/main/res/layout/activity_play_wordle.xml" value="0.1641025641025641" />
       </map>
     </option>
   </component>
