@@ -11,12 +11,22 @@ import android.widget.DatePicker
 import androidx.appcompat.app.AppCompatActivity
 import androidx.browser.customtabs.CustomTabColorSchemeParams
 import androidx.browser.customtabs.CustomTabsIntent
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import com.robinhood.ticker.TickerView
 import java.util.*
 import kotlin.math.floor
 
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var mAdView: AdView
+    private val mAppUnitId: String by lazy {
+
+        getString(R.string.banner_main_Activity_ad_unit_id)
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,7 +68,27 @@ class MainActivity : AppCompatActivity() {
             customTabsIntent.launchUrl(this, Uri.parse(url));
         }
 
+        mAdView = findViewById(R.id.bannerAd)
+
+        initializeBannerAd(mAppUnitId)
+
+        loadBannerAd()
+
+
     }
+
+    private fun initializeBannerAd(appUnitId: String) {
+
+        MobileAds.initialize(this, {})
+
+    }
+
+    private fun loadBannerAd() {
+
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
+    }
+
 
     private fun getSolutionFromDatePicker(datePicker: DatePicker): String {
 
