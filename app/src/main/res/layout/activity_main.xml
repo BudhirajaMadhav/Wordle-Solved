@@ -9,7 +9,7 @@
     tools:layout_editor_absoluteY="80dp">
 
 
-    <TextView
+    <com.robinhood.ticker.TickerView
         android:id="@+id/firstLetter"
         android:layout_width="65dp"
         android:layout_height="65dp"
@@ -21,11 +21,11 @@
         android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/secondLetter"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:ticker_animationDuration="1500"/>
 
-    <TextView
+    <com.robinhood.ticker.TickerView
         android:id="@+id/secondLetter"
         android:layout_width="65dp"
         android:layout_height="65dp"
@@ -37,11 +37,11 @@
         android:textStyle="bold"
         android:textSize="40sp"
         app:layout_constraintEnd_toStartOf="@+id/thridLetter"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/firstLetter"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:ticker_animationDuration="1500"/>
 
-    <TextView
+    <com.robinhood.ticker.TickerView
         android:id="@+id/thridLetter"
         android:layout_width="65dp"
         android:layout_height="65dp"
@@ -53,11 +53,11 @@
         android:textStyle="bold"
         android:textColor="@color/white"
         app:layout_constraintEnd_toStartOf="@+id/fourthLetter"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/secondLetter"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:ticker_animationDuration="1500"/>
 
-    <TextView
+    <com.robinhood.ticker.TickerView
         android:id="@+id/fourthLetter"
         android:layout_width="65dp"
         android:layout_height="65dp"
@@ -69,11 +69,11 @@
         android:textStyle="bold"
         android:textColor="@color/white"
         app:layout_constraintEnd_toStartOf="@+id/fifthLetter"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/thridLetter"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:ticker_animationDuration="1500"/>
 
-    <TextView
+    <com.robinhood.ticker.TickerView
         android:id="@+id/fifthLetter"
         android:layout_width="65dp"
         android:layout_height="65dp"
@@ -85,9 +85,9 @@
         android:textStyle="bold"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/fourthLetter"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:ticker_animationDuration="1500"/>
 
     <DatePicker
         android:layout_width="wrap_content"
@@ -115,6 +115,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/datePicker"
         android:backgroundTint="#ffd758"
+        style="@style/Widget.Material3.Button.ElevatedButton"
+
         />
 
     <Button
@@ -127,6 +129,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="40dp"
-        android:backgroundTint="#ffd758"/>
+        android:backgroundTint="#ffd758"
+        style="@style/Widget.Material3.Button.ElevatedButton"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
