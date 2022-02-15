@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
 
 //        Initialise ads
         mAdView = findViewById(R.id.bannerAd)
-        initializeBannerAd(mAppUnitId)
+        initializeBannerAd()
         loadBannerAd()
 
     }
@@ -102,7 +102,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun initializeBannerAd(appUnitId: String) {
+    private fun initializeBannerAd() {
 
         MobileAds.initialize(this, {})
 
